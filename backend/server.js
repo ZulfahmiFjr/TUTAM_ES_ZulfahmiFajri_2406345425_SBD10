@@ -9,7 +9,12 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect('mongodb+srv://zulfahmifjr:123@prak-sbd.r0bm57q.mongodb.net/noteapp?appName=prak-sbd')
+
+const uriDB = process.env.MONGODB_URI;
+
+// 'mongodb+srv://zulfahmifjr:123@prak-sbd.r0bm57q.mongodb.net/noteapp?appName=prak-sbd'
+
+mongoose.connect(uriDB)
   .then(() => console.log('Database nyambung nih!'))
   .catch(err => console.log(err));
 
