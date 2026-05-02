@@ -32,6 +32,7 @@ app.delete('/notes/:id', async (req, res) => {
   res.json({ message: 'Note dihapus' });
 });
 
-app.listen(5000, () => {
-  console.log('Server jalan di port 5000');
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server jalan di port ${PORT}`);
 });
