@@ -6,14 +6,14 @@ function App() {
   const [text, setText] = useState('')
 
   useEffect(() => {
-    axios.get('http://localhost:5000/notes')
+    axios.get('https://tutam-sbd10-8bda03ad23a7.herokuapp.com/notes')
       .then(res => setNotes(res.data))
       .catch(err => console.log(err))
   }, [])
 
   const addNote = () => {
     if (!text) return;
-    axios.post('http://localhost:5000/notes', { text })
+    axios.post('https://tutam-sbd10-8bda03ad23a7.herokuapp.com/notes', { text })
       .then(res => {
         setNotes([...notes, res.data])
         setText('')
@@ -21,7 +21,7 @@ function App() {
   }
 
   const deleteNote = (id) => {
-    axios.delete(`http://localhost:5000/notes/${id}`)
+    axios.delete(`https://tutam-sbd10-8bda03ad23a7.herokuapp.com/notes/${id}`)
       .then(() => {
         setNotes(notes.filter(note => note._id !== id))
       })
